@@ -37,7 +37,7 @@ const addRJ45 = (g, con) => {
     .attr("height", 5)
     .attr("x", 1)
     .attr("y", -20)
-    .attr("class", "rj45-green")
+    .attr("class", "rj45-red")
     .attr("fill", "#888")
     .attr("stroke", "#000");
 
@@ -47,7 +47,7 @@ const addRJ45 = (g, con) => {
     .attr("height", 5)
     .attr("x", 21)
     .attr("y", -20)
-    .attr("class", "rj45-red")
+    .attr("class", "rj45-green")
     .attr("fill", "#888")
     .attr("stroke", "#000");
 
@@ -203,9 +203,9 @@ let up = [1, 2, 5, 10, 14, 16, 19, 27, 32, 33, 41, 45,46,47];
 
 (function f() {
   up.forEach(u => {
-    d3.select(`.ge-${u}`).select(".rj45-green").attr("fill", "#2ecc71");
-    d3.select(`.ge-${u}`).select(".rj45-red")
-    .attr("fill", Math.random() <= 0.5 ? "#888" : "#e67e22")
+    let ge = d3.select(`.ge-${u}`);
+    ge.select(".rj45-green").attr("fill", Math.random() <= 0.5 ? "#888" : "#2ecc71");
+    ge.select(".rj45-red").attr("fill", "#e67e22")
   });
 
   setTimeout(f, 100)
